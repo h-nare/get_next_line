@@ -6,7 +6,7 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:21:17 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/26 20:53:29 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/03/26 20:59:38 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char *get_next_line(int fd)
 
     buffer = read(fd,a,BUFFER_SIZE);
 
-    while((buffer > 0) && find_n)
+    while((buffer > 0) && find_n(a))
     {
 
     }
