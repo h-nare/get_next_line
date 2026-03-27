@@ -6,17 +6,20 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:18:41 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/26 20:18:33 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/03/27 19:51:52 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 #define GET_NEXT_LINE_H
 
-#ifndef BUFFER_SIZE 42
+#ifndef BUFFER_SIZE 
+#  define 42
 
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 #endif

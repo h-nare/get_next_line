@@ -6,7 +6,7 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:21:17 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/26 20:59:38 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/03/27 20:16:54 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,23 @@ char *get_next_line(int fd)
 {
     int buffer;
     static char *smth;
-    char a[BUFFER_SIZE +1];
+    char a[BUFFER_SIZE + 1];
 
     buffer = read(fd,a,BUFFER_SIZE);
-
+    if(buffer == -1)
+        return (NULL);
+    smth = malloc(BUFFER_SIZE + 1);
+    if(!smth)
+        return (NULL);
+    
     while((buffer > 0) && find_n(a))
     {
-
+        if(!smth)
+            ft_strlcpy(smth,a,buffer);
+        ft_strjoin(smth,a)
+        buffer = read(fd,a,BUFFER_SIZE);
+        if(buffer == -1)
+            return (NULL);     
     }
    
     
