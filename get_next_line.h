@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
+/*   By: narehakobyan <narehakobyan@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:18:41 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/27 19:51:52 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/03/28 13:02:31 by narehakobya      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE 
-#  define 42
+#  define BUFFER_SIZE 42
+#  endif
 
 #include <stdlib.h>
 #include <fcntl.h>
