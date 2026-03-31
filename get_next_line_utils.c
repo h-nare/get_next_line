@@ -6,7 +6,7 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 19:17:55 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/27 19:35:07 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/03/31 17:44:06 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	ft_strlen(const char *str)
 	}
 	return (len);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;
@@ -50,24 +51,28 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new_str);
 }
 
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
-	size_t	src_len;
+	char	*dup;
+	int		length;
+	int		i;
 
 	i = 0;
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	while (i < (size - 1) && src[i])
+	length = ft_strlen(s);
+	dup = (char *)malloc((length + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	while (s[i] && s[i] != '\n')
 	{
-		dst[i] = src[i];
+		dup[i] = s[i];
 		i++;
 	}
-	if (size > 0)
-		dst[i] = '\0';
-	return (src_len);
+	if (s[i] == '\n')
+	{
+    	dup[i] = '\n';
+    	i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
-
 
