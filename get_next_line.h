@@ -6,7 +6,7 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:18:41 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/31 18:19:44 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/04/02 19:40:44 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE 
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 42
 #  endif
 
 #include <stdlib.h>

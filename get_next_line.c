@@ -6,7 +6,7 @@
 /*   By: narhakob <narhakob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:21:17 by narhakob          #+#    #+#             */
-/*   Updated: 2026/03/31 18:30:37 by narhakob         ###   ########.fr       */
+/*   Updated: 2026/04/02 20:27:45 by narhakob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,15 @@ char *trim_smth(char *s)
 
     i = 0;
     j = 0;
-    
     while(s[i] && s[i] != '\n')
         i++;
     if(!s[i])
-    {
-        free(s);
-        return (NULL);
-    }
+        return (free(s), NULL);
+  
     i++;
-    new = malloc(ft_strlen(s) - i + 1);
+    new = malloc(ft_strlen(s + i) + 1);
     if(!new)
-        return (new);
+        return (NULL);
     while(s[i])
     {
         new[j] = s[i];
@@ -58,20 +55,27 @@ char *get_next_line(int fd)
 {
     int buffer;
     static char *smth;
-    char a[BUFFER_SIZE + 1];
+    char *a = malloc(BUFFER_SIZE + 1);
+    if (!a)
+        return NULL;
     char *tmp;
     char *line;
-
+    
     if(fd < 0 || (BUFFER_SIZE < 0))
-        return (free(smth),NULL);
-    buffer = read(fd,a,BUFFER_SIZE);
-    if(buffer == -1)
+    {   
+        free(a);
+        if(smth)
+            free(smth);
         return (NULL);
+    }
+    buffer = read(fd, a, BUFFER_SIZE);
+    if(buffer == -1)
+        return (free(a),NULL);
     if(!smth)
     {
         smth = malloc(1);
         if(!smth)
-            return (NULL);
+            return (free(a),NULL);
         smth[0] = '\0';
     }
     while((buffer > 0) && !find_n(smth))
@@ -82,30 +86,36 @@ char *get_next_line(int fd)
         free(tmp);
         buffer = read(fd,a,BUFFER_SIZE);  
     }
+    free(a);
     if(buffer < 0)
         return (NULL);
     if(!smth || smth[0] == '\0')
         return (NULL);
     line = ft_strdup(smth);
+    if(!line)
+        return (NULL);
     smth = trim_smth(smth);
+    if(!smth)
+        return(NULL);
     return (line);
-     
 }
+
 // int main()
 // {
 //     int fd;
+//     char *esim;
+    
 //     fd = open("file.txt",O_RDONLY);
-//     char *esim = get_next_line(fd);
+//     esim = get_next_line(fd);
+
 //     printf("%s",esim);
 //     free(esim);
+
 //     esim = get_next_line(fd);
+
 //     printf("%s",esim);
 //     free(esim);
 //     // printf("%s",get_next_line(fd));
 //     // printf("%s",get_next_line(fd));
     
 // }
-
-
-
-
